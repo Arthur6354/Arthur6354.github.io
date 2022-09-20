@@ -1,89 +1,103 @@
 <html>
 <head>
-<!--    
-<script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!--    
+<meta name="viewport" content="width=device-width">
+<script src="d3.min.js"></script>
 -->
 </head>
 <body onload="Init()">
-<hgroup>
     <h1 onclick="toggle_handler.Switch()" >How to Win Friends and Influence People</h1>
-    <h2>Fundamental Techniques in Handling People</h2>
-    <ul>
-    <li>Don't criticize, condemn or complain.</li>
-    <li>Give honest and sincere appreciation.</li>
-    <li>Arouse in the other person an eager want.</li>
-    </ul>
-    <h2>Ways to Make People Like You</h2>
-    <ul>
-    <li>Become genuinely interested in other people.</li>
-    <li>Smile.</li>
-    <li>Remember that a person's name is to that person the sweetest and most important sound in any language.</li>
-    <li>Be a good listener. Encourage others to talk about themselves.</li>
-    <li>Talk in terms of the other person's interests.</li>
-    <li>Make the other person feel important-and do it sincerely.</li>
-    </ul>
-    <h2>How to Win People to Your Way of Thinking</h2>
-    <ul>
-    <li>The only way to get the best of an argument is to avoid it.</li>
-    <li>Show respect for the other person's opinions. Never say, "You're wrong."</li>
-    <li>If you are wrong, admit it quickly and emphatically.</li>
-    <li>Begin in a friendly way.</li>
-    <li>Get the other person saying "yes, yes" immediately.</li>
-    <li>Let the other person do a great deal of the talking.</li>
-    <li>Let the other person feel that the idea is his or hers.</li>
-    <li>Try honestly to see things from the other person's point of view.</li>
-    <li>Be Sympathetic with the other person's ideas and desires.</li>
-    <li>Appeal to the nobler motives.</li>
-    <li>Dramatize your ideas.</li>
-    <li>Throw down a challenge.</li>
-    </ul>
-    <h2>Be a Leader: How to Change People Without Giving Offensive or Arousing Resentment</h2>
-    <ul>
-    <li>Begin with praise and honest appreciation.</li>
-    <li>Call attention to people's mistakes indirectly.</li>
-    <li>Talk about your own mistakes before criticizing the other person.</li>
-    <li>Ask questions instead of giving direct orders.</li>
-    <li>Let the other person save face.</li>
-    <li>Praise the slightest improvement and praise every improvement. Be "hearty in your approbation and lavish in your praise."</li>
-    <li>Give the other person a fine reputation to live up to.</li>
-    <li>Use encouragement. Make the fault seem easy to correct.</li>
-    <li>Make the other person happy about doing the thing you suggest.</li>
-    </ul>
-</hgroup>    
 </body>
 </html>
 <script>
+var wfip = [
+    {
+        title: "Fundamental Techniques in Handling People",
+        tips: ["Don't criticize, condemn or complain.",
+               "Give honest and sincere appreciation.", 
+               "Arouse in the other person an eager want."]
+    },
+    {
+        title: "Ways to Make People Like You",
+        tips: ["Become genuinely interested in other people.",
+               "Smile.", 
+               "Remember that a person's name is to that person the sweetest and most important sound in any language.",
+               "Be a good listener. Encourage others to talk about themselves.", 
+               "Talk in terms of the other person's interests.", 
+               "Make the other person feel important-and do it sincerely."]
+    },
+    {
+        title: "How to Win People to Your Way of Thinking",
+        tips: ["The only way to get the best of an argument is to avoid it.",
+               "Show respect for the other person's opinions. Never say, \"You're wrong.\"", 
+               "If you are wrong, admit it quickly and emphatically.",
+               "Begin in a friendly way.", 
+               "Get the other person saying \"yes, yes\" immediately.", 
+               "Let the other person do a great deal of the talking.",
+               "Let the other person feel that the idea is his or hers.",
+               "Try honestly to see things from the other person's point of view.",
+               "Be Sympathetic with the other person's ideas and desires.",
+               "Appeal to the nobler motives.",
+               "Dramatize your ideas.",
+               "Throw down a challenge."]
+    },
+    {
+        title: "Be a Leader: How to Change People Without Giving Offensive or Arousing Resentment",
+        tips: ["Begin with praise and honest appreciation.",
+               "Call attention to people's mistakes indirectly.", 
+               "Talk about your own mistakes before criticizing the other person.",
+               "Ask questions instead of giving direct orders.", 
+               "Let the other person save face.", 
+               "Praise the slightest improvement and praise every improvement. Be \"hearty in your approbation and lavish in your praise.\"",
+               "Give the other person a fine reputation to live up to.",
+               "Use encouragement. Make the fault seem easy to correct.",
+               "Make the other person happy about doing the thing you suggest."]
+    }
+];
+
 class ToggleHandler {
-    constructor(node) {
-        this.node = node;
-        let part = this.Pick1(node.querySelectorAll("h2"));
-        this.picked = this.Pick1(part.nextElementSibling.querySelectorAll("li"));
+    constructor() {
         this.ShowSingle();
+        //this.ShowAll();
     }
     Pick1(data) {
-        let i = Math.floor(Math.random() * data.length);
+        //let i = Math.floor(Math.random() * data.length);
+        let i = d3.randomInt(data.length)();
         return data[i];
     }
+    /*
     HideChildren(nodes, hidden) {
         //console.log(`Hide(${node.localName}, ${hidden}) ${node.childElementCount} children`);
         for (let i of nodes) {
+            //console.log(i);
             i.hidden = hidden;
             if (i.childElementCount)
                 this.HideChildren(i.children, hidden);
         }
     }
+    */
+    RemoveAll() {
+        d3.selectAll("ul").remove();
+        d3.selectAll("h2").remove();
+    }
     ShowSingle() {
-        //console.log(`ToggleHandler.ShowSingle ${} groups`);
-        this.HideChildren(this.node.children, true);
-        this.node.firstElementChild.hidden = false;
-        this.picked.parentElement.previousElementSibling.hidden = false;
-        this.picked.parentElement.hidden = false;
-        this.picked.hidden = false;
+        let part = this.Pick1(wfip);
+        this.RemoveAll();
+        let body = d3.select("body");
+        body.append("h2").text(part.title);
+        body.append("ul").append("li").text(this.Pick1(part.tips));
         this.show_all = false;
     }
     ShowAll() {
         //console.log("ToggleHandler.ShowAll");
-        this.HideChildren(this.node.children, false);
+        this.RemoveAll();
+        let parts = d3.select("body").selectAll("h2");
+        parts = parts.data(wfip).enter().append("h2").text(part => part.title);
+        parts.select(function(part) {
+            this.after(document.createElement("ul"));
+            return d3.select(this.nextElementSibling).selectAll("li").data(part.tips).enter().append("li").text(tip => tip);
+        });
         this.show_all = true;
     }
     Switch() {
@@ -98,9 +112,10 @@ class ToggleHandler {
 var toggle_handler;
 
 function Init() {
-    toggle_handler = new ToggleHandler(document.querySelector("hgroup"));
+    //console.log("Init");
+    toggle_handler = new ToggleHandler();
 }    
-    //d3.select("body").text("test d3");
+    
     //https://stackoverflow.com/questions/247483/http-get-request-in-javascript
     /*
     fetch("http://www.google.com", { mode: 'no-cors' }).then(function (response) {

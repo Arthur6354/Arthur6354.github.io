@@ -1,27 +1,31 @@
 <html>
-    <head>
-        <style>
-            .syntax_border {border: 1px solid}
-        </style>
-    </head>
-    <body>
-        <table class="syntax_border">
-            <tr><th>for</th></tr>
-            <tr>
-                <th class="syntax_border">Javascript</th>
-                <td><code>for (let i = 0; i < options.length; i++)</code></td>
-            </tr>
-            <tr>
-                <th class="syntax_border">Python</th>
-                <td><code>for i in range(10):</code></td>
-            </tr>
-        </table>
-        <table class="syntax_border">
-            <tr><th>if</th></tr>
-            <tr>
-                <th class="syntax_border">Javascript</th>
-                <td>
-                    <pre><code>
+<head>
+<style>
+    .border {border: 1px solid}
+</style>
+</head>
+<body style="display: flex; flex-flow: row wrap">
+<table class="border">
+    <tr><th></th><th>for</th></tr>
+    <tr>
+        <th class="border">Javascript</th>
+        <td><pre><code>
+for (let i = 0; i < options.length; i++)
+        </code></pre></td>
+    </tr>
+    <tr>
+        <th class="border">Python</th>
+        <td><pre><code>
+for i in range(10):
+        </code></pre></td>
+    </tr>
+</table>
+<table class="border">
+    <tr><th></th><th>if</th></tr>
+    <tr>
+        <th class="border">Javascript</th>
+        <td>
+            <pre><code>
 if (condition1) {
     statement1;
 } else if (condition2) {
@@ -29,106 +33,129 @@ if (condition1) {
 } else {
     statementLast;
 }
-                </code></pre>
-                </td>
-            </tr>
-            <tr>
-                <th class="syntax_border">Python</th>
-                <td>
-                    <pre><code>
+        </code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th class="border">Python</th>
+        <td>
+            <pre><code>
 if penguin is None:
 elif True or False:
 else:
-                    </code></pre>
-                </td>
-            </tr>
-        </table>
-        <table class="syntax_border">
-            <tr><th>try</th></tr>
-            <tr>
-                <th class="syntax_border">Javascript</th>
-                <td>
-                    <pre><code>
+            </code></pre>
+        </td>
+    </tr>
+</table>
+<table class="border">
+    <tr><th></th><th>try-catch</th></tr>
+    <tr>
+        <th class="border">Javascript</th>
+        <td><pre><code>
 try {
     statement1;
 } catch (error) {
     console.error(error);
 }
-                </code></pre>
-                </td>
-            </tr>
-            <tr>
-                <th class="syntax_border">Python</th>
-                <td>
-                    <pre><code>
-                    </code></pre>
-                </td>
-            </tr>
-        </table>
-        <table class="syntax_border">
-            <tr><th>list</th></tr>
-            <tr>
-                <th class="syntax_border">Javascript</th>
-                <td><code></code></td>
-            </tr>
-            <tr>
-                <th class="syntax_border">Python</th>
-                <td>
-                    <pre><code>
+        </code></pre></td>
+    </tr>
+    <tr>
+        <th class="border">Python</th>
+        <td>
+            <pre><code>
+            </code></pre>
+        </td>
+    </tr>
+</table>
+<table class="border">
+    <tr><th></th><th>list</th></tr>
+    <tr>
+        <th class="border">Javascript</th>
+        <td>
+            <pre><code>
+const fish = ['Lion', , 'Angel'];
+fish.length;
+            </code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th class="border">Python</th>
+        <td>
+            <pre><code>
 letters = ['a', 'b', 'c', 'd']
 len(letters)
-                    </code></pre>
-                </td>
-            </tr>
-        </table>
-        <table class="syntax_border">
-            <tr><th>func</th></tr>
-            <tr>
-                <th class="syntax_border">Javascript</th>
-                <td>
-                    <pre><code>
+list(range(0, 10, 3))
+            </code></pre>
+        </td>
+    </tr>
+</table>
+<table class="border">
+    <tr><th></th><th>function</th></tr>
+    <tr>
+        <th class="border">Javascript</th>
+        <td>
+            <pre><code>
 function map(f, a) {
     return result;
 }
-                    </code></pre>
-                </td>
-            </tr>
-            <tr>
-                <th class="syntax_border">Python</th>
-                <td>
-                    <pre><code>
+            </code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th class="border">Python</th>
+        <td>
+            <pre><code>
 def whats_on_the_telly(penguin=None):
     return penguin                
-                    </code></pre>
-                </td>
-            </tr>
-        </table>
-        <table class="syntax_border">
-            <tr><th>string conversion</th></tr>
-            <tr>
-                <th class="syntax_border">Javascript</th>
-                <td>
-                    <pre><code>
-                    </code></pre>
-                </td>
-            </tr>
-            <tr>
-                <th class="syntax_border">Python</th>
-                <td>
-                    <pre><code>
+            </code></pre>
+        </td>
+    </tr>
+</table>
+<table class="border">
+    <tr><th></th><th>string format</th></tr>
+    <tr>
+        <th class="border">Javascript</th>
+        <td>
+            <pre><code>
+`${}`                        
+            </code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th class="border">Python</th>
+        <td>
+            <pre><code>
+f'{n:08X}'
+            </code></pre>
+        </td>
+    </tr>
+</table>
+<table class="border">
+    <tr><th></th><th>string conversion</th></tr>
+    <tr>
+        <th class="border">Javascript</th>
+        <td>
+            <pre><code>
+            </code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th class="border">Python</th>
+        <td>
+            <pre><code>
 int(), str()
-                    </code></pre>
-                </td>
-            </tr>
-            <tr>
-                <th class="syntax_border">C++</th>
-                <td>
-                    <pre><code>
+            </code></pre>
+        </td>
+    </tr>
+    <tr>
+        <th class="border">C++</th>
+        <td>
+            <pre><code>
 stoi(), stof(), from_chars()
 to_string()
-                    </code></pre>
-                </td>
-            </tr>
-        </table>
-    </body>
+            </code></pre>
+        </td>
+    </tr>
+</table>
+</body>
 </html>

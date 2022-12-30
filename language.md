@@ -33,7 +33,7 @@ else:
 </table>
 
 <table>
-    <tr><th>try-catch</th></tr>
+    <tr><th>exception</th></tr>
     <tr><td>Javascript</td><td>Python</td></tr>
     <tr>
     <td valign="top"><pre><code>
@@ -44,6 +44,14 @@ try {
 }
     </code></pre></td>
     <td valign="top"><pre><code>
+try:
+    f = open('myfile.txt')
+except OSError as err:
+    print("OS error: {0}".format(err))
+except ValueError:
+    print("Could not convert data to an integer.")
+except:
+    raise    
     </code></pre></td>
     </tr>
 </table>
@@ -71,15 +79,15 @@ numbers = [int(x) for x in input().split(' ')]
     <tr><th>function</th></tr>
     <tr><td>Javascript</td><td>Python</td></tr>
     <tr>
-    <td valign="top"><pre lang="javascript"><code>
+    <td valign="top"><pre lang="javascript">
 function map(f, a) {
     return result;
 }
-    </code></pre></td>
-    <td valign="top"><pre lang="python"><code>
+    </pre></td>
+    <td valign="top"><pre lang="python">
 def whats_on_the_telly(penguin=None):
     return penguin                
-    </code></pre></td>
+    </pre></td>
     </tr>
 </table>
 

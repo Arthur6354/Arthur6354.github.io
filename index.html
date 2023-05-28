@@ -91,13 +91,13 @@ class ToggleHandler {
     }
     */
     RemoveAll() {
-        d3.selectAll("#motto ul").remove();
-        d3.selectAll("#motto h2").remove();
+        d3.selectAll("#influence ul").remove();
+        d3.selectAll("#influence h2").remove();
     }
     ShowSingle() {
         let part = this.Pick1(wfip);
         this.RemoveAll();
-        let motto = d3.select("#motto");
+        let motto = d3.select("#influence");
         motto.append("h2").text(part.title);
         motto.append("ul").append("li").text(this.Pick1(part.tips));
         this.show_all = false;
@@ -105,7 +105,7 @@ class ToggleHandler {
     ShowAll() {
         //console.log("ToggleHandler.ShowAll");
         this.RemoveAll();
-        let parts = d3.select("#motto").selectAll("h2");
+        let parts = d3.select("#influence").selectAll("h2");
         parts = parts.data(wfip).enter().append("h2").text(part => part.title);
         parts.select(function(part) {
             this.after(document.createElement("ul"));

@@ -1,6 +1,17 @@
+<script>
+function ToggleSection(head) {
+    let lyric = head.parentElement.querySelector('pre');
+    lyric.hidden = !lyric.hidden;
+    //console.log(head);
+}
+</script>
+
+<section>
+<h5 onclick="ToggleSection(this)"">
 張清芳
 
 燃燒一瞬間
+</h5>
 <pre>
 別人的愛情故事 纏纏綿綿
 你我之間 卻隱隱約約
@@ -31,10 +42,13 @@
 我點起心中 那片熊熊火焰
 燃燒一瞬間
 </pre>
-
+</section>
+<section>
+<h5 onclick="ToggleSection(this)">
 高明駿 + 陳艾湄
 
 誰說我不在乎
+</h5>
 <pre>
 一封不該來的信  你又何必介意
 昨天的你變得好模糊  真叫人捉不住
@@ -51,10 +65,13 @@
 <i>昨天的你變得好模糊  難道只為了一封信</i>
 <i>{chorus}</i>
 </pre>
-
+</section>
+<section>
+<h5 onclick="ToggleSection(this)">
 Madonna
 
 La Isla Bonita
+</h5>
 <pre>
 Como puede ser verdad
 
@@ -95,10 +112,13 @@ Te dijo te amo
 La la la la la la la
 El dijo que te ama
 </pre>
-
+</section>
+<section>
+<h5 onclick="ToggleSection(this)">
 陳淑樺
 
 滾滾紅塵
+</h5>
 <pre>
 起初不經意的妳  和少年不經世的我
 紅塵中的情緣  只因那生命匆匆不語的膠著
@@ -117,3 +137,4 @@ El dijo que te ama
 至今世間仍有隱約的耳語  跟隨我倆的傳說
 滾滾紅塵裡有隱約的耳語  跟隨我倆的傳說
 </pre>
+</section>

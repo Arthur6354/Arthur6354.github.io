@@ -10,14 +10,15 @@ Item.storeList = function () {
 }
 
 Item.loadList = function () {
-    items = JSON.parse(localStorage["items"]);
-    console.log(items.length);
-    if (items.length) {
-        Item.list = [];
+    Item.list = [];
+    let items_js = localStorage["items"];
+    if (items_js) {
+        items = JSON.parse(items_js);
         for (item of items) {
-            console.log(item);
+            //console.log(item);
             Item.list.push(new Item(item));
         }
-    } else
-        Item.list = [new Item()];
+    }
+    if (!Item.list.length)
+        Item.list.push(new Item());
 }

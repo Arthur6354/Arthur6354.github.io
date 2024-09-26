@@ -80,17 +80,7 @@ class ToggleHandler {
         let i = d3.randomInt(data.length)();
         return data[i];
     }
-    /*
-    HideChildren(nodes, hidden) {
-        //console.log(`Hide(${node.localName}, ${hidden}) ${node.childElementCount} children`);
-        for (let i of nodes) {
-            //console.log(i);
-            i.hidden = hidden;
-            if (i.childElementCount)
-                this.HideChildren(i.children, hidden);
-        }
-    }
-    */
+
     RemoveAll() {
         d3.selectAll("#influence ul").remove();
         d3.selectAll("#influence h2").remove();
@@ -116,10 +106,8 @@ class ToggleHandler {
     }
     Switch() {
         //console.log("ToggleHandler.Switch");
-        if (this.show_all)
-            this.ShowSingle();
-        else
-            this.ShowAll();
+        if (this.show_all) this.ShowSingle();
+        else this.ShowAll();
     }
 };
 
